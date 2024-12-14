@@ -260,6 +260,7 @@ void centertext (int y, int offset, char* text) {
 }
 
 void player (int mode) {
+	setcolor(WHITE);
 	ellipse(75, 120, 0, 180, 45, 55);
 	circle(75, 40, 25);
 
@@ -295,7 +296,7 @@ void player (int mode) {
 		case 2: // Draw
 			line(70, 40, 70, 28);
 			line(80, 40, 80, 28);
-			line(68, 69, 83, 69);
+			line(68, 51, 83, 51);
 			break;
 		case 3: // Win
 			drawpoly(3, lwink);
@@ -306,6 +307,7 @@ void player (int mode) {
 }
 
 void robot (int mode) {
+	setcolor(WHITE);
 	rectangle(20, -(120 - (2 * 10)) + vinf.bottom - 11 - 10, 130, -(120 - (2 * 80)) + vinf.bottom - 11 - 80);
 	rectangle(25, -(120 - (2 * 15)) + vinf.bottom - 11 - 15, 125, -(120 - (2 * 75)) + vinf.bottom - 11 - 75);
 	rectangle(40, -(120 - (2 * 85)) + vinf.bottom - 11 - 85, 110, -(120 - (2 * 120)) + vinf.bottom - 11 - 120);
@@ -826,12 +828,18 @@ void redrawviewport (int mode, int info) {
 			if (info == 1) {
 				setcolor(GREEN);
 				centertext(190, "You WIN!");
+				player(3);
+				robot(2);
 			} else if (info == 3) {
 				setcolor(YELLOW);
 				centertext(190, "It's a TIE!");
+				player(2);
+				robot(0);
 			} else if (info == 2) {
 				setcolor(RED);
 				centertext(190, "You LOSE!");
+				player(1);
+				robot(3);
 			}
 
 			delay(1200);
@@ -1122,17 +1130,19 @@ int gameSetup () {
 
 
 		// Start game confirmation
-		clearviewport();
-		redrawviewport(3, 3);
+		do {
+			clearviewport();
+			redrawviewport(3, 3);
 
-		msg = awaitKey();
+			msg = awaitKey();
 
-		switch (msg) {
-			case SELECT:
-				return 0;
-			case BACK:
-				goto roundchoices;
-		}
+			switch (msg) {
+				case SELECT:
+					return 0;
+			}
+		} while (msg != BACK);
+
+		if (msg == BACK) goto roundchoices;
 
 	} while (1);
 }
@@ -1368,6 +1378,5 @@ int main () {
 	freeAssets();
 	endGraphics();
 
-	getch();
 	return 0;
 }
