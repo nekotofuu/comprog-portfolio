@@ -1,0 +1,9 @@
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\bin\Debug\MyLucky7.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\bin\Debug\MyLucky7.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\bin\Debug\MyLucky7.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\obj\x86\Debug\MyLucky7.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\obj\x86\Debug\MyLucky7.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\obj\x86\Debug\MyLucky7.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\obj\x86\Debug\MyLucky7.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\obj\x86\Debug\MyLucky7.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\MyLucky7\MyLucky7\obj\x86\Debug\MyLucky7.pdb

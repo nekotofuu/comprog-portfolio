@@ -1,0 +1,9 @@
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\bin\Debug\My Framework Math.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\bin\Debug\My Framework Math.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\bin\Debug\My Framework Math.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\obj\x86\Debug\My_Framework_Math.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\obj\x86\Debug\My_Framework_Math.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\obj\x86\Debug\My Framework Math.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\obj\x86\Debug\My Framework Math.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\obj\x86\Debug\My Framework Math.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Framework Math\My Framework Math\obj\x86\Debug\My Framework Math.pdb

@@ -1,0 +1,9 @@
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\bin\Debug\My Celsius Conversion.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\bin\Debug\My Celsius Conversion.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\bin\Debug\My Celsius Conversion.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\obj\x86\Debug\My_Celsius_Conversion.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\obj\x86\Debug\My_Celsius_Conversion.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\obj\x86\Debug\My Celsius Conversion.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\obj\x86\Debug\My Celsius Conversion.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\obj\x86\Debug\My Celsius Conversion.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Celsius Conversion\My Celsius Conversion\obj\x86\Debug\My Celsius Conversion.pdb

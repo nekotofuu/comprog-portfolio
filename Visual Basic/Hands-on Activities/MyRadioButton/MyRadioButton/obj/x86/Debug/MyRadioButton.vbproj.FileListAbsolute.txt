@@ -1,0 +1,12 @@
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\bin\Debug\image-removebg-preview (10).png
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\bin\Debug\image-removebg-preview (8).png
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\bin\Debug\image-removebg-preview (9).png
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\bin\Debug\MyRadioButton.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\bin\Debug\MyRadioButton.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\bin\Debug\MyRadioButton.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\obj\x86\Debug\WindowsApplication1.Form1.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\obj\x86\Debug\MyRadioButton.vbproj.GenerateResource.Cache
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\obj\x86\Debug\MyRadioButton.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\obj\x86\Debug\MyRadioButton.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\MyRadioButton\MyRadioButton\obj\x86\Debug\MyRadioButton.pdb

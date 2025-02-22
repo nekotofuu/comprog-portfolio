@@ -1,0 +1,18 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\bin\Debug\My User Validation.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\bin\Debug\My User Validation.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\bin\Debug\My User Validation.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\obj\x86\Debug\My_User_Validation.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\obj\x86\Debug\My_User_Validation.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\obj\x86\Debug\My User Validation.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\obj\x86\Debug\My User Validation.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\obj\x86\Debug\My User Validation.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My User Validation\obj\x86\Debug\My User Validation.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\obj\x86\Debug\My User Validation.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\obj\x86\Debug\My User Validation.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\obj\x86\Debug\My User Validation.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\bin\Debug\My User Validation.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\bin\Debug\My User Validation.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\bin\Debug\My User Validation.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\obj\x86\Debug\My_User_Validation.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\obj\x86\Debug\My_User_Validation.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My User Validation\My User Validation\obj\x86\Debug\My User Validation.vbproj.GenerateResource.Cache

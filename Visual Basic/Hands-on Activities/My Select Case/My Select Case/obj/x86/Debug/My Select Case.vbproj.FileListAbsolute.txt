@@ -1,0 +1,12 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\bin\Debug\My Select Case.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\bin\Debug\My Select Case.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\bin\Debug\My Select Case.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\obj\x86\Debug\My_Select_Case.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\obj\x86\Debug\My_Select_Case.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\obj\x86\Debug\My Select Case.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\obj\x86\Debug\My Select Case.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\obj\x86\Debug\My Select Case.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Select Case\obj\x86\Debug\My Select Case.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Select Case\My Select Case\obj\x86\Debug\My Select Case.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Select Case\My Select Case\obj\x86\Debug\My Select Case.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Select Case\My Select Case\obj\x86\Debug\My Select Case.pdb

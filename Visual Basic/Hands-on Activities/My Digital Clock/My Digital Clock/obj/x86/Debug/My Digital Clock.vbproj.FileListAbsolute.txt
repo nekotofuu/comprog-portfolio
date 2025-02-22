@@ -1,0 +1,9 @@
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\bin\Debug\My Digital Clock.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\bin\Debug\My Digital Clock.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\bin\Debug\My Digital Clock.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\obj\x86\Debug\My_Digital_Clock.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\obj\x86\Debug\My_Digital_Clock.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\obj\x86\Debug\My Digital Clock.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\obj\x86\Debug\My Digital Clock.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\obj\x86\Debug\My Digital Clock.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Digital Clock\My Digital Clock\obj\x86\Debug\My Digital Clock.pdb

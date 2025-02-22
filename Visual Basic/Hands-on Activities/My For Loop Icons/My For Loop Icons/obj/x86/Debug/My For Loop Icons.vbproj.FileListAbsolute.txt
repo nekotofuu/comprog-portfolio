@@ -1,0 +1,12 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\obj\x86\Debug\My_For_Loop_Icons.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\obj\x86\Debug\My For Loop Icons.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\bin\Debug\My For Loop Icons.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\bin\Debug\My For Loop Icons.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\bin\Debug\My For Loop Icons.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\obj\x86\Debug\My_For_Loop_Icons.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\obj\x86\Debug\My For Loop Icons.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\obj\x86\Debug\My For Loop Icons.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My For Loop Icons\obj\x86\Debug\My For Loop Icons.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My For Loop Icons\My For Loop Icons\obj\x86\Debug\My For Loop Icons.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My For Loop Icons\My For Loop Icons\obj\x86\Debug\My For Loop Icons.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My For Loop Icons\My For Loop Icons\obj\x86\Debug\My For Loop Icons.pdb

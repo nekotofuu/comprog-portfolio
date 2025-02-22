@@ -1,0 +1,12 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\MyWebLink\obj\x86\Debug\MyWebLink.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\MyWebLink\obj\x86\Debug\MyWebLink.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\MyWebLink\obj\x86\Debug\MyWebLink.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\obj\x86\Debug\MyWebLink.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\obj\x86\Debug\MyWebLink.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\obj\x86\Debug\MyWebLink.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\bin\Debug\MyWebLink.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\bin\Debug\MyWebLink.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\bin\Debug\MyWebLink.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\obj\x86\Debug\MyWebLink.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\obj\x86\Debug\MyWebLink.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\MyWebLink\MyWebLink\obj\x86\Debug\MyWebLink.pdb

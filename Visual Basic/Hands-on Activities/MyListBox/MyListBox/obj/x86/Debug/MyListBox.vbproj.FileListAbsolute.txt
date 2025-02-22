@@ -1,0 +1,9 @@
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\bin\Debug\MyListBox.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\bin\Debug\MyListBox.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\bin\Debug\MyListBox.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\obj\x86\Debug\MyListBox.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\obj\x86\Debug\MyListBox.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\obj\x86\Debug\MyListBox.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\obj\x86\Debug\MyListBox.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\obj\x86\Debug\MyListBox.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\MyListBox\MyListBox\obj\x86\Debug\MyListBox.pdb
