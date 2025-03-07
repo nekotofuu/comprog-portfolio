@@ -1,0 +1,12 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\bin\Debug\My URL Collection.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\bin\Debug\My URL Collection.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\bin\Debug\My URL Collection.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\obj\x86\Debug\My_URL_Collection.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\obj\x86\Debug\My_URL_Collection.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\obj\x86\Debug\My URL Collection.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\obj\x86\Debug\My URL Collection.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\obj\x86\Debug\My URL Collection.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My URL Collection\obj\x86\Debug\My URL Collection.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My URL Collection\My URL Collection\obj\x86\Debug\My URL Collection.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My URL Collection\My URL Collection\obj\x86\Debug\My URL Collection.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My URL Collection\My URL Collection\obj\x86\Debug\My URL Collection.pdb

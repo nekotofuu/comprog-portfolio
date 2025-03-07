@@ -7,3 +7,12 @@ C:\Users\Brent\AppData\Local\Temporary Projects\PETA_2\obj\x86\Debug\PETA_2.vbpr
 C:\Users\Brent\AppData\Local\Temporary Projects\PETA_2\obj\x86\Debug\PETA_2.exe
 C:\Users\Brent\AppData\Local\Temporary Projects\PETA_2\obj\x86\Debug\PETA_2.xml
 C:\Users\Brent\AppData\Local\Temporary Projects\PETA_2\obj\x86\Debug\PETA_2.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\obj\x86\Debug\PETA_2.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\obj\x86\Debug\PETA_2.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\obj\x86\Debug\PETA_2.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\bin\Debug\PETA_2.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\bin\Debug\PETA_2.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\bin\Debug\PETA_2.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\obj\x86\Debug\PETA_2.Form1.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\obj\x86\Debug\PETA_2.Resources.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_2\PETA_2\obj\x86\Debug\PETA_2.vbproj.GenerateResource.Cache

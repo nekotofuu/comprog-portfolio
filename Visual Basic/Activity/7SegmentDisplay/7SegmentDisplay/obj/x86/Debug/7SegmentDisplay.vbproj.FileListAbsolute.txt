@@ -1,0 +1,9 @@
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\bin\Debug\7SegmentDisplay.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\bin\Debug\7SegmentDisplay.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\bin\Debug\7SegmentDisplay.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\obj\x86\Debug\WindowsApplication1.Form1.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\obj\x86\Debug\7SegmentDisplay.vbproj.GenerateResource.Cache
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\obj\x86\Debug\7SegmentDisplay.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\obj\x86\Debug\7SegmentDisplay.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\7SegmentDisplay\7SegmentDisplay\obj\x86\Debug\7SegmentDisplay.pdb

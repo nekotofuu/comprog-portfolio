@@ -1,0 +1,12 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\bin\Debug\My Desktop Bounds.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\bin\Debug\My Desktop Bounds.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\bin\Debug\My Desktop Bounds.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\obj\x86\Debug\My_Desktop_Bounds.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\obj\x86\Debug\My_Desktop_Bounds.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\obj\x86\Debug\My Desktop Bounds.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\obj\x86\Debug\My Desktop Bounds.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\obj\x86\Debug\My Desktop Bounds.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Desktop Bounds\obj\x86\Debug\My Desktop Bounds.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Desktop Bounds\My Desktop Bounds\obj\x86\Debug\My Desktop Bounds.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Desktop Bounds\My Desktop Bounds\obj\x86\Debug\My Desktop Bounds.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Desktop Bounds\My Desktop Bounds\obj\x86\Debug\My Desktop Bounds.pdb

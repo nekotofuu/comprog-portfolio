@@ -6,9 +6,7 @@
         Dim extraFee As Double = 0
 
         ' Declare radio activation variables
-        Dim isAdult As Boolean = CBool(rbAdult.Checked)
-
-        If isAdult Then
+        If rbAdult.Checked Then
             baseFee = 100
         Else
             baseFee = 75
@@ -29,6 +27,5 @@
         Dim totalFee As Double = baseFee + extraFee
 
         tbFee.Text = FormatCurrency(totalFee)
-
     End Sub
 End Class

@@ -1,0 +1,9 @@
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\bin\Debug\My Windows Version Snippet.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\bin\Debug\My Windows Version Snippet.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\bin\Debug\My Windows Version Snippet.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\obj\x86\Debug\My_Windows_Version_Snippet.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\obj\x86\Debug\My_Windows_Version_Snippet.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\obj\x86\Debug\My Windows Version Snippet.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\obj\x86\Debug\My Windows Version Snippet.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\obj\x86\Debug\My Windows Version Snippet.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Windows Version Snippet\My Windows Version Snippet\obj\x86\Debug\My Windows Version Snippet.pdb

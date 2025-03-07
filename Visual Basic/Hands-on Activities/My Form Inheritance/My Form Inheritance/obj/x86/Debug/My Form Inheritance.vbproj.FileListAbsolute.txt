@@ -1,0 +1,10 @@
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\bin\Debug\My Form Inheritance.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\bin\Debug\My Form Inheritance.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\bin\Debug\My Form Inheritance.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\obj\x86\Debug\My_Form_Inheritance.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\obj\x86\Debug\My_Form_Inheritance.Form2.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\obj\x86\Debug\My_Form_Inheritance.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\obj\x86\Debug\My Form Inheritance.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\obj\x86\Debug\My Form Inheritance.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\obj\x86\Debug\My Form Inheritance.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Form Inheritance\My Form Inheritance\obj\x86\Debug\My Form Inheritance.pdb

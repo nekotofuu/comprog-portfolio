@@ -2,7 +2,7 @@
 
     
     Private Sub btnCalculate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
-        Dim daysElapsed As Integer = DateDiff(DateInterval.Day, dtpBirth.Value, dtpNow.Value)
+        Dim daysElapsed As Integer = DateDiff(DateInterval.Day, CDate(mtbDate.Text), CDate(DateString))
         Dim convFactor As Double
         Dim term As String
 
@@ -36,5 +36,9 @@
         txtAge.Text = CStr(age) & " " & term & " years"
 
 
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        txtDateNow.Text = FormatDateTime(CDate(DateString), DateFormat.LongDate)
     End Sub
 End Class

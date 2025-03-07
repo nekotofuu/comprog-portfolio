@@ -1,0 +1,18 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\bin\Debug\My Add Controls.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\bin\Debug\My Add Controls.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\bin\Debug\My Add Controls.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\obj\x86\Debug\My_Add_Controls.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\obj\x86\Debug\My_Add_Controls.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\obj\x86\Debug\My Add Controls.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\obj\x86\Debug\My Add Controls.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\obj\x86\Debug\My Add Controls.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Add Controls\obj\x86\Debug\My Add Controls.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\obj\x86\Debug\My Add Controls.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\obj\x86\Debug\My Add Controls.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\obj\x86\Debug\My Add Controls.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\bin\Debug\My Add Controls.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\bin\Debug\My Add Controls.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\bin\Debug\My Add Controls.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\obj\x86\Debug\My_Add_Controls.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\obj\x86\Debug\My_Add_Controls.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Add Controls\My Add Controls\obj\x86\Debug\My Add Controls.vbproj.GenerateResource.Cache

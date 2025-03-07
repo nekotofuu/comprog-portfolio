@@ -10,6 +10,8 @@
         Label2.Text = CStr(Int(Rnd() * 10))
         Label3.Text = CStr(Int(Rnd() * 10))
 
+        Spins += 1 ' Added as part of HOA #18
+
         If ( _
             Label1.Text = "7" Or _
             Label2.Text = "7" Or _
@@ -17,7 +19,14 @@
             ) Then
             PictureBox1.Visible = True
             Beep()
+
+            ' Added as part of HOA #18
+            Wins += 1
+            Label5.Text = "Wins: " & Wins
         End If
+
+        Label6.Text = HitRate(Wins, Spins) ' Added as part of HOA #18
+
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click

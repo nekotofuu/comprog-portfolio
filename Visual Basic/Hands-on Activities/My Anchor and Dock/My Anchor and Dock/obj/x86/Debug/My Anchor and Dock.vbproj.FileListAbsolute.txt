@@ -1,0 +1,9 @@
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\bin\Debug\My Anchor and Dock.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\bin\Debug\My Anchor and Dock.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\bin\Debug\My Anchor and Dock.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\obj\x86\Debug\My_Anchor_and_Dock.Form1.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\obj\x86\Debug\My_Anchor_and_Dock.Resources.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\obj\x86\Debug\My Anchor and Dock.vbproj.GenerateResource.Cache
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\obj\x86\Debug\My Anchor and Dock.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\obj\x86\Debug\My Anchor and Dock.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Anchor and Dock\My Anchor and Dock\obj\x86\Debug\My Anchor and Dock.pdb

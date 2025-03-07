@@ -10,3 +10,9 @@ C:\Users\Brent\AppData\Local\Temporary Projects\PETA_4\obj\x86\Debug\PETA_4.pdb
 C:\Users\Brent\documents\visual studio 2010\Projects\PETA_4\PETA_4\obj\x86\Debug\PETA_4.exe
 C:\Users\Brent\documents\visual studio 2010\Projects\PETA_4\PETA_4\obj\x86\Debug\PETA_4.xml
 C:\Users\Brent\documents\visual studio 2010\Projects\PETA_4\PETA_4\obj\x86\Debug\PETA_4.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_4\PETA_4\bin\Debug\PETA_4.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_4\PETA_4\bin\Debug\PETA_4.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_4\PETA_4\bin\Debug\PETA_4.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_4\PETA_4\obj\x86\Debug\PETA_4.Form1.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_4\PETA_4\obj\x86\Debug\PETA_4.Resources.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_4\PETA_4\obj\x86\Debug\PETA_4.vbproj.GenerateResource.Cache

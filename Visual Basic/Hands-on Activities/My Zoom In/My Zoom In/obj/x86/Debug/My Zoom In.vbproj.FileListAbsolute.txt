@@ -1,0 +1,12 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\bin\Debug\My Zoom In.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\bin\Debug\My Zoom In.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\bin\Debug\My Zoom In.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\obj\x86\Debug\My_Zoom_In.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\obj\x86\Debug\My_Zoom_In.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\obj\x86\Debug\My Zoom In.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\obj\x86\Debug\My Zoom In.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\obj\x86\Debug\My Zoom In.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Zoom In\obj\x86\Debug\My Zoom In.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Zoom In\My Zoom In\obj\x86\Debug\My Zoom In.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Zoom In\My Zoom In\obj\x86\Debug\My Zoom In.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Zoom In\My Zoom In\obj\x86\Debug\My Zoom In.pdb

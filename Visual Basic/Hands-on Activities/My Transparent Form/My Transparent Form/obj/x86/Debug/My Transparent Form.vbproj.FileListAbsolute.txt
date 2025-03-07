@@ -1,0 +1,12 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\bin\Debug\My Transparent Form.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\bin\Debug\My Transparent Form.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\bin\Debug\My Transparent Form.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\obj\x86\Debug\My_Transparent_Form.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\obj\x86\Debug\My_Transparent_Form.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\obj\x86\Debug\My Transparent Form.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\obj\x86\Debug\My Transparent Form.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\obj\x86\Debug\My Transparent Form.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\My Transparent Form\obj\x86\Debug\My Transparent Form.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Transparent Form\My Transparent Form\obj\x86\Debug\My Transparent Form.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Transparent Form\My Transparent Form\obj\x86\Debug\My Transparent Form.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Transparent Form\My Transparent Form\obj\x86\Debug\My Transparent Form.pdb

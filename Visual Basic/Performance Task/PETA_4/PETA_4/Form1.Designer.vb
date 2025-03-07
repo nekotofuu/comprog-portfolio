@@ -33,11 +33,11 @@ Partial Class Form1
         Me.rbMercury = New System.Windows.Forms.RadioButton()
         Me.lblBirth = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.dtpBirth = New System.Windows.Forms.DateTimePicker()
-        Me.dtpNow = New System.Windows.Forms.DateTimePicker()
         Me.btnCalculate = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtAge = New System.Windows.Forms.TextBox()
+        Me.mtbDate = New System.Windows.Forms.MaskedTextBox()
+        Me.txtDateNow = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -165,22 +165,6 @@ Partial Class Form1
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Date Today:"
         '
-        'dtpBirth
-        '
-        Me.dtpBirth.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpBirth.Location = New System.Drawing.Point(209, 34)
-        Me.dtpBirth.Name = "dtpBirth"
-        Me.dtpBirth.Size = New System.Drawing.Size(119, 20)
-        Me.dtpBirth.TabIndex = 3
-        '
-        'dtpNow
-        '
-        Me.dtpNow.Enabled = False
-        Me.dtpNow.Location = New System.Drawing.Point(149, 95)
-        Me.dtpNow.Name = "dtpNow"
-        Me.dtpNow.Size = New System.Drawing.Size(179, 20)
-        Me.dtpNow.TabIndex = 4
-        '
         'btnCalculate
         '
         Me.btnCalculate.Location = New System.Drawing.Point(183, 134)
@@ -206,16 +190,32 @@ Partial Class Form1
         Me.txtAge.Size = New System.Drawing.Size(151, 20)
         Me.txtAge.TabIndex = 7
         '
+        'mtbDate
+        '
+        Me.mtbDate.Location = New System.Drawing.Point(209, 37)
+        Me.mtbDate.Mask = "00/00/0000"
+        Me.mtbDate.Name = "mtbDate"
+        Me.mtbDate.Size = New System.Drawing.Size(114, 20)
+        Me.mtbDate.TabIndex = 8
+        Me.mtbDate.ValidatingType = GetType(Date)
+        '
+        'txtDateNow
+        '
+        Me.txtDateNow.Location = New System.Drawing.Point(151, 95)
+        Me.txtDateNow.Name = "txtDateNow"
+        Me.txtDateNow.Size = New System.Drawing.Size(177, 20)
+        Me.txtDateNow.TabIndex = 9
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(360, 262)
+        Me.Controls.Add(Me.txtDateNow)
+        Me.Controls.Add(Me.mtbDate)
         Me.Controls.Add(Me.txtAge)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnCalculate)
-        Me.Controls.Add(Me.dtpNow)
-        Me.Controls.Add(Me.dtpBirth)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblBirth)
         Me.Controls.Add(Me.GroupBox1)
@@ -238,10 +238,10 @@ Partial Class Form1
     Friend WithEvents rbMercury As System.Windows.Forms.RadioButton
     Friend WithEvents lblBirth As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents dtpBirth As System.Windows.Forms.DateTimePicker
-    Friend WithEvents dtpNow As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnCalculate As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtAge As System.Windows.Forms.TextBox
+    Friend WithEvents mtbDate As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txtDateNow As System.Windows.Forms.TextBox
 
 End Class

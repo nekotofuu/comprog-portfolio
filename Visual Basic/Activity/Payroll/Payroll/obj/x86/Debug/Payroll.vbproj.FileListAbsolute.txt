@@ -1,0 +1,19 @@
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\bin\Debug\Payroll.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\bin\Debug\Payroll.pdb
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\bin\Debug\Payroll.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\obj\x86\Debug\Payroll.Form1.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\obj\x86\Debug\Payroll.Resources.resources
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\obj\x86\Debug\Payroll.vbproj.GenerateResource.Cache
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\obj\x86\Debug\Payroll.exe
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\obj\x86\Debug\Payroll.xml
+C:\Users\Brent\AppData\Local\Temporary Projects\Payroll\obj\x86\Debug\Payroll.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\Payroll\Payroll\obj\x86\Debug\Payroll.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\Payroll\Payroll\obj\x86\Debug\Payroll.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\Payroll\Payroll\obj\x86\Debug\Payroll.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\Payroll\Payroll\bin\Debug\Payroll.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\Payroll\Payroll\bin\Debug\Payroll.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\Payroll\Payroll\bin\Debug\Payroll.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\Payroll\Payroll\obj\x86\Debug\Payroll.Form1.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\Payroll\Payroll\obj\x86\Debug\Payroll.Resources.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\Payroll\Payroll\obj\x86\Debug\Payroll.vbproj.GenerateResource.Cache
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\Payroll\Payroll\obj\x86\Debug\Payroll.Form2.resources

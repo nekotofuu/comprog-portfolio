@@ -51,13 +51,13 @@ Partial Class Menu
         Me.grpBurgers.Controls.Add(Me.radBurger3)
         Me.grpBurgers.Controls.Add(Me.radBurger2)
         Me.grpBurgers.Controls.Add(Me.radBurger1)
-        Me.grpBurgers.Enabled = False
         Me.grpBurgers.Location = New System.Drawing.Point(91, 20)
         Me.grpBurgers.Name = "grpBurgers"
         Me.grpBurgers.Size = New System.Drawing.Size(214, 116)
         Me.grpBurgers.TabIndex = 0
         Me.grpBurgers.TabStop = False
         Me.grpBurgers.Text = "Choices for Burgers"
+        Me.grpBurgers.Visible = False
         '
         'radBurger4
         '
@@ -106,13 +106,13 @@ Partial Class Menu
         Me.grpFries.Controls.Add(Me.radFries3)
         Me.grpFries.Controls.Add(Me.radFries2)
         Me.grpFries.Controls.Add(Me.radFries1)
-        Me.grpFries.Enabled = False
         Me.grpFries.Location = New System.Drawing.Point(91, 145)
         Me.grpFries.Name = "grpFries"
         Me.grpFries.Size = New System.Drawing.Size(213, 95)
         Me.grpFries.TabIndex = 1
         Me.grpFries.TabStop = False
         Me.grpFries.Text = "Choices for Fries"
+        Me.grpFries.Visible = False
         '
         'radFries3
         '
@@ -150,13 +150,13 @@ Partial Class Menu
         '
         Me.grpDrinks.Controls.Add(Me.radDrinks2)
         Me.grpDrinks.Controls.Add(Me.radDrinks1)
-        Me.grpDrinks.Enabled = False
         Me.grpDrinks.Location = New System.Drawing.Point(91, 250)
         Me.grpDrinks.Name = "grpDrinks"
         Me.grpDrinks.Size = New System.Drawing.Size(213, 70)
         Me.grpDrinks.TabIndex = 2
         Me.grpDrinks.TabStop = False
         Me.grpDrinks.Text = "Choices for Drinks"
+        Me.grpDrinks.Visible = False
         '
         'radDrinks2
         '

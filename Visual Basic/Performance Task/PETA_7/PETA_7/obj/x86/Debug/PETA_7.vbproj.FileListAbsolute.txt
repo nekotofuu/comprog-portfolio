@@ -10,3 +10,9 @@ C:\Users\Brent\AppData\Local\Temporary Projects\PETA_7\obj\x86\Debug\PETA_7.pdb
 C:\Users\Brent\documents\visual studio 2010\Projects\PETA_7\PETA_7\obj\x86\Debug\PETA_7.exe
 C:\Users\Brent\documents\visual studio 2010\Projects\PETA_7\PETA_7\obj\x86\Debug\PETA_7.xml
 C:\Users\Brent\documents\visual studio 2010\Projects\PETA_7\PETA_7\obj\x86\Debug\PETA_7.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_7\PETA_7\bin\Debug\PETA_7.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_7\PETA_7\bin\Debug\PETA_7.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_7\PETA_7\bin\Debug\PETA_7.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_7\PETA_7\obj\x86\Debug\PETA_7.Menu.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_7\PETA_7\obj\x86\Debug\PETA_7.Resources.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\PETA_7\PETA_7\obj\x86\Debug\PETA_7.vbproj.GenerateResource.Cache

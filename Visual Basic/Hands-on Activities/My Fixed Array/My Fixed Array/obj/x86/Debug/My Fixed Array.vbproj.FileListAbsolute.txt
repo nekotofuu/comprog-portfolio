@@ -1,0 +1,9 @@
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\bin\Debug\My Fixed Array.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\bin\Debug\My Fixed Array.pdb
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\bin\Debug\My Fixed Array.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\obj\x86\Debug\My_Fixed_Array.Form1.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\obj\x86\Debug\My_Fixed_Array.Resources.resources
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\obj\x86\Debug\My Fixed Array.vbproj.GenerateResource.Cache
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\obj\x86\Debug\My Fixed Array.exe
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\obj\x86\Debug\My Fixed Array.xml
+C:\Users\Brent\documents\visual studio 2010\Projects\My Fixed Array\My Fixed Array\obj\x86\Debug\My Fixed Array.pdb

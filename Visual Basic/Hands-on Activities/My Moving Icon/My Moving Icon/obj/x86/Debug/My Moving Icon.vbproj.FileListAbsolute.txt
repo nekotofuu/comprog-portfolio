@@ -1,0 +1,9 @@
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\bin\Debug\My Moving Icon.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\bin\Debug\My Moving Icon.pdb
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\bin\Debug\My Moving Icon.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\obj\x86\Debug\My_Moving_Icon.Form1.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\obj\x86\Debug\My_Moving_Icon.Resources.resources
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\obj\x86\Debug\My Moving Icon.vbproj.GenerateResource.Cache
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\obj\x86\Debug\My Moving Icon.exe
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\obj\x86\Debug\My Moving Icon.xml
+C:\Users\Brent\Documents\Visual Studio 2010\Projects\My Moving Icon\My Moving Icon\obj\x86\Debug\My Moving Icon.pdb
