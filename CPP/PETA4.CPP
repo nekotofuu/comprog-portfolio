@@ -499,14 +499,14 @@ void stateMainMenu (int option) {
 }
 
 void stateExitConfirm() {
-	centertext(5, "Do you want to quit the game?");
+	centertext(75, "Do you want to quit the game?");
 	centertext(105, -30, "Yes");
 	centertext(105, +30, "No");
 }
 
 void stateGameSetup(int setupMode) {
 	char numBuffer[4];
-	sprintf(playerbf, "%s", playerName);
+	sprintf(numBuffer,"%d", rounds);
 
 	settextstyle(7, 0, 1);
 	centertext(15, "Game Setup");
@@ -753,7 +753,7 @@ void stateRoundResults(int result) {
 
 	sprintf(plyscrbf, "%d", pScore);
 	sprintf(comscrbf, "%d", cScore);
-	
+
 	settextstyle(2, 0, 8);
 	getviewsettings(&vinf);
 
@@ -816,7 +816,7 @@ void stateRoundResults(int result) {
 	}
 }
 
-void stateGameResults(int info) {
+void stateGameResults(int result) {
 	char numBuffer[4];
 	char roundsbf[10], playerbf[13];
 	char plyscrbf[3], comscrbf[3];
@@ -864,10 +864,11 @@ void stateGameResults(int info) {
 	delay(1200);
 	setcolor(WHITE);
 	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, -(30 + textwidth(playerbf)), playerbf);
-	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, 30 + textwidth("Player"), "Computer");
+	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, 30 + textwidth(playerbf), "Computer");
 
+	// Score
 	outtextxy(textcenter(-(30 + textwidth(playerbf)), playerbf) + (textwidth(playerbf) - textwidth(plyscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, plyscrbf);
-	outtextxy(textcenter(30 + textwidth("Player"), "Computer") + (textwidth("Computer") - textwidth(comscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, comscrbf);
+	outtextxy(textcenter(30 + textwidth(playerbf), "Computer") + (textwidth("Computer") - textwidth(comscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, comscrbf);
 	delay(1200);
 	settextstyle(0, 0, 0);
 	centertext(100 + (vinf.bottom - vinf.top - textheight("W")) / 2, "Press any key to continue...");
@@ -880,6 +881,7 @@ void redrawviewport (int mode, int info) {
 	switch (mode) {
 		case 1: // Main Menu
 			stateMainMenu(info);
+			break;
 		case 2: // Exit confirmation
 			stateExitConfirm();
 			break;
@@ -887,7 +889,7 @@ void redrawviewport (int mode, int info) {
 			stateGameSetup(info);
 			break;
 		case 4:  // Game proper: round setup
-			stateRoundInfo();
+			stateRoundSetup();
 			break;
 		case 5: // Game proper: player update
 			statePlayerChoice(info);
@@ -899,7 +901,7 @@ void redrawviewport (int mode, int info) {
 			stateRoundResults(info);
 			break;
 		case 8: // Game proper: results screen
-			stateGameReults(info);
+			stateGameResults(info);
 			break;
 		default:
 			return;
@@ -938,7 +940,8 @@ void loading (int min) {
 
 void title() {
 	int centerx, centery;
-	resetviewport(0);
+	resetviewport(1);
+	border();
 
 	// Title
 	setviewport(30, 30, getmaxx() - 30, getmaxy() - 30, 0);
@@ -1077,7 +1080,7 @@ int exit () {
 		}
 
 		// Highlight selected option
-		if (cChoices == 0) rectangle((viewwidth() - textwidth("Yes")) / 2 - 30 - 5, 100, 5 + textwidth("Yes") + ((viewwidth() - textwidth("Yes")) / 2 - 30), 115 + textheight("Yes"));
+		if (cChoices == 0) rectangle((viewwidth() - textwidth("Yes")) / 2 - 50 - 5, 100, 5 + textwidth("Yes") + ((viewwidth() - textwidth("Yes")) / 2 - 50), 115 + textheight("Yes"));
 		else if (cChoices == 1) rectangle((viewwidth() - textwidth("No")) / 2 + 30 - 5, 100, 5 + textwidth("No") + ((viewwidth() - textwidth("No")) / 2 + 30), 115 + textheight("No"));
 
 	} while (1);
@@ -1127,6 +1130,7 @@ int numGames (Message msg) {
 int playerselect () {
 	// Initializes index at the current player name
 	int index = strlen(playerName);
+	playerName[index] = '_';
 	int keypress;
 
 	do {
@@ -1141,22 +1145,25 @@ int playerselect () {
 		  int altkey = getch();
 		  switch (altkey) {
 			case 80:
+			       playerName[index] = '\0';
 			       return 0;
 		  }
 		} else if (keypress == 27) break; // Exits when Esc is detected
-		else if ((keypress == 13) || (keypress == 32)) return 0; // Proceeds to next screen upon Space/Enter
-		else if (keypress == 8) { // Processes backspace
+		else if ((keypress == 13) || (keypress == 32)) { // Proceeds to next screen upon Space/Enter
+			playerName[index] = '\0';
+			return 0;
+		} else if (keypress == 8) { // Processes backspace
 			if (index > 0) {  // Checks if current index is not below 0
 				index--;  // Shifts index
-				playerName[index] = '_'; 
-				playerName[index++] = '\0'; // Replaces current index with a null character (to simulate key deletion)
+				playerName[index] = '_';
+				playerName[index + 1] = '\0'; // Replaces current index with a null character (to simulate key deletion)
 			}
 		} else { // Facilitates any other key presses
 			if (index < 12){ // Checks if current index is greater than 12 (max name limit)
 				playerName[index] = char(keypress);
 				index++;
-				playerName[index] = '_'; 
-				playerName[index++] = '\0'; 
+				playerName[index] = '_';
+				playerName[index + 1] = '\0';
 			}
 		}
 
@@ -1301,17 +1308,14 @@ void scoreUpdater (int mode) {
 }
 
 void gameProper () {
-
 	int isDraw;
+	enum Message msg;
 
 	pMove = 1, pScore = 0;
 	cMove = 1, cScore = 0;
 
 	currentRound = 1;
 
-	enum Message msg;
-
-	resetviewport(1);
 	clearviewport();
 
 	setviewport(11, 11, getmaxx() - 11, getmaxy() - 11, 0);

@@ -7,7 +7,6 @@
 #include <time.h>
 #include <string.h>
 #include <math.h>
-#include <alloc.h>
 
 /* Global Variables */
 int rounds = 1, currentRound = 1;
@@ -134,7 +133,7 @@ void box (int x, int y, int sidelength) {
 // applies a transformation to rotate each point by the angle provided, then
 // draws each point using drawpoly();
 
-void rotateEllipse (int centerx, int centery, int xrad, int yrad, int angle) {
+void rotateEllipse (int centerx, int centery, int xrad, int yrad, int angle, int fill) {
 
 	if (angle == 0 || angle == 180) ellipse(centerx, centery, 0, 360, xrad, yrad);
 	else if (angle == 90 || angle == 270) ellipse(centerx, centery, 0, 360, yrad, xrad);
@@ -182,59 +181,8 @@ void rotateEllipse (int centerx, int centery, int xrad, int yrad, int angle) {
 		j++;
 		ellipse[j] = ellipsey[0];
 
-		drawpoly(point, ellipse);
-	 }
-}
-
-void fillRotEllipse (int centerx, int centery, int xrad, int yrad, int angle) {
-
-	if (angle == 0 || angle == 180) fillellipse(centerx, centery, xrad, yrad);
-	else if (angle == 90 || angle == 270) fillellipse(centerx, centery, yrad, xrad);
-	else {
-		float x, y, xNew, yNew;
-		float theta = angle * (M_PI / 180.0);
-		float alpha = 0.0;
-		int i = 0, j = 2;
-
-		int ellipsex[629] = {0};
-		int ellipsey[629] = {0};
-		int ellipse[1260] = {0};
-
-		do {
-			x = xrad * cos(alpha);
-			y = yrad * sin(alpha);
-
-
-			ellipsex[i] = centerx + (x * cos(theta) - y * sin(theta));
-			ellipsey[i] = centery + (x * sin(theta) + y * cos(theta));
-
-			alpha = alpha + 0.01;
-			i++;
-		} while (i <= 628);
-
-		ellipse[0] = ellipsex[0];
-		ellipse[1] = ellipsey[0];
-
-		int point = 1;
-		for (i = 1; i <= 628; i++) {
-			if (ellipsex[i - 1] != ellipsex[i] || ellipsey[i - 1] != ellipsey[i]) {
-
-				ellipse[j] = ellipsex[i];
-				j++;
-
-				ellipse[j] = ellipsey[i];
-				j++;
-
-				point++;
-			}
-
-		}
-
-		ellipse[j] = ellipsex[0];
-		j++;
-		ellipse[j] = ellipsey[0];
-
-		fillpoly(point, ellipse);
+		if (fill) fillpoly(point, ellipse);
+		else drawpoly(point, ellipse);
 	 }
 }
 
@@ -516,17 +464,17 @@ int initAssets() {
 	fillpoly(5, rblade);
 
 	setlinestyle(0, 0, 3);
-	rotateEllipse(20, 60, 16, 8, -25);
-	rotateEllipse(40, 80, 16, 8, -65);
+	rotateEllipse(20, 60, 16, 8, -25, 0);
+	rotateEllipse(40, 80, 16, 8, -65, 0);
 
 	setfillstyle(1, 12);
 	setlinestyle(0, 0, 1);
-	fillRotEllipse(20, 60, 16, 8, -25);
-	fillRotEllipse(40, 80, 16, 8, -65);
+	rotateEllipse(20, 60, 16, 8, -25, 1);
+	rotateEllipse(40, 80, 16, 8, -65, 1);
 
 	setfillstyle(1, 0);
-	fillRotEllipse(20, 60, 8, 4, -25);
-	fillRotEllipse(40, 80, 8, 4, -65);
+	rotateEllipse(20, 60, 8, 4, -25, 1);
+	rotateEllipse(40, 80, 8, 4, -65, 1);
 
 	getimage(0, 0, 100, 100, scissors);
 	cleardevice();
@@ -540,12 +488,262 @@ int initAssets() {
 	return 0;
 }
 
-// Function responsible for redrawing non-static game states (eg. menus)
-// The argument info allows us to pass some information to the redrawer,
-// which allows us to change some elements of the game.
-void redrawviewport (int mode, int info) {
+/* Game States */
+void stateMainMenu (int option) {
+	outtextxy(230, 50, "Play");
+	outtextxy(230, 80, "How to Play");
+	outtextxy(230, 110, "Quit");
 
-	char numBuffer[3];
+	// Handle pointer redraws
+	pointer(210, 63 + (30 * option), 8);
+}
+
+void stateExitConfirm() {
+	centertext(5, "Do you want to quit the game?");
+	centertext(105, -30, "Yes");
+	centertext(105, +30, "No");
+}
+
+void stateGameSetup(int setupMode) {
+	char numBuffer[4];
+	sprintf(playerbf, "%s", playerName);
+
+	settextstyle(7, 0, 1);
+	centertext(15, "Game Setup");
+
+	if (setupMode == 1) setcolor(YELLOW);
+	settextstyle(1, 0, 1);
+	centertext(45, "Player Name");
+	if (setupMode == 1) setcolor(WHITE);
+
+	settextstyle(2, 0, 8);
+	centertext(65, playerName);
+
+	if (setupMode == 2) setcolor(YELLOW);
+	settextstyle(1, 0, 1);
+	centertext(90, "Number of Games");
+	if (setupMode == 2) setcolor(WHITE);
+
+	settextstyle(2, 0, 8);
+	centertext(110, numBuffer);
+
+	if (rounds >= 10) pointer(textcenter(0, numBuffer) - 5, (textheight(numBuffer) / 2) + 110, -3);
+	else if (rounds <= 1) pointer(textcenter(0, numBuffer) + textwidth(numBuffer) + 2, (textheight(numBuffer) / 2) + 110, 3);
+	else {
+		pointer(textcenter(0, numBuffer) - 5, (textheight(numBuffer) / 2) + 110, -3);
+		pointer(textcenter(0, numBuffer) + textwidth(numBuffer) + 2, (textheight(numBuffer) / 2) + 110, 3);
+	}
+
+	settextstyle(2, 0, 8);
+	if (setupMode == 3) setcolor(YELLOW);
+	centertext(140, "Start Game");
+	if (setupMode == 3) setcolor(WHITE);
+}
+
+void stateRoundSetup() {
+	char numBuffer[4];
+	char roundsbf[10], playerbf[13];
+	char plyscrbf[3], comscrbf[3];
+
+
+	sprintf(numBuffer,"%d", rounds);
+	sprintf(roundsbf, "Round %d", currentRound);
+	sprintf(playerbf, "%s", playerName);
+
+	sprintf(plyscrbf, "%d", pScore);
+	sprintf(comscrbf, "%d", cScore);
+
+	settextstyle(2, 0, 8);
+	getviewsettings(&vinf);
+
+	// Character Portrait Boxes
+	line(150, 0, 150, 150);
+	line(0, 120, 150, 120);
+	line(0, 150, 150, 150);
+
+	line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
+	line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
+	line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
+
+	robot(0);
+	player(0);
+
+	// Nameplates
+	settextstyle(2, 0, 7);
+	outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
+	outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
+
+	// Scoreboard
+	settextstyle(2, 0, 8);
+	line(50, 240, 100, 240);
+	outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
+	outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
+
+	// Round header
+	delay(1250);
+	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, roundsbf);
+	delay(1250);
+	settextstyle(0, 0, 0);
+	centertext((vinf.bottom - vinf.top - textheight("W")) / 2 + 20, "Press any key...");
+	settextstyle(2, 0, 8);
+	getch();
+	clearviewport();
+
+	// Rewrites screen again for next part of animation
+	// Nameplates
+	settextstyle(2, 0, 7);
+	outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
+	outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
+
+	// Scoreboard
+	settextstyle(2, 0, 8);
+	line(50, 240, 100, 240);
+	outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
+	outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
+
+	// Character Portrait Boxes
+	line(150, 0, 150, 150);
+	line(0, 120, 150, 120);
+	line(0, 150, 150, 150);
+
+	line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
+	line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
+	line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
+
+	robot(0);
+	player(0);
+
+	// Choices display animation
+	putimage(400, 50, rock, 0);
+
+	delay(750);
+	putimage(400, 175, paper, 0);
+
+	delay(750);
+	putimage(400, 300, scissors, 0);
+
+	delay(750);
+	pointer(350, 100, 12);
+}
+
+void statePlayerChoice(int choice) {
+	char numBuffer[4];
+	char roundsbf[10], playerbf[13];
+	char plyscrbf[3], comscrbf[3];
+
+
+	sprintf(numBuffer,"%d", rounds);
+	sprintf(roundsbf, "Round %d", currentRound);
+	sprintf(playerbf, "%s", playerName);
+
+	sprintf(plyscrbf, "%d", pScore);
+	sprintf(comscrbf, "%d", cScore);
+
+	settextstyle(2, 0, 8);
+	getviewsettings(&vinf);
+
+	settextstyle(2, 0, 7);
+	outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
+	outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
+
+	line(150, 0, 150, 150);
+	line(0, 120, 150, 120);
+	line(0, 150, 150, 150);
+
+	line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
+	line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
+	line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
+
+	robot(0);
+	player(0);
+
+	settextstyle(2, 0, 8);
+	line(50, 240, 100, 240);
+	outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
+	outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
+
+	settextstyle(2, 0, 7);
+	outtextxy(175, 25, "Your Move");
+	outtextxy(175, vinf.bottom - 25 - 11 - textheight("C"), "CPU  Move");
+
+	putimage(400, 50, rock, 0);
+	putimage(400, 175, paper, 0);
+	putimage(400, 300, scissors, 0);
+
+	if (choice == 1) {
+		pointer(350, 100, 12);
+		putimage(175, 50, rock, 0);
+	} else if (choice == 2) {
+		pointer(350, 225, 12);
+		putimage(175, 50, paper, 0);
+	} else if (choice == 3) {
+		pointer(350, 350, 12);
+		putimage(175, 50, scissors, 0);
+	}
+}
+
+void stateComputerChoice(int choice) {
+	char numBuffer[4];
+	char roundsbf[10], playerbf[13];
+	char plyscrbf[3], comscrbf[3];
+
+
+	sprintf(numBuffer,"%d", rounds);
+	sprintf(roundsbf, "Round %d", currentRound);
+	sprintf(playerbf, "%s", playerName);
+
+	sprintf(plyscrbf, "%d", pScore);
+	sprintf(comscrbf, "%d", cScore);
+
+	settextstyle(2, 0, 8);
+	getviewsettings(&vinf);
+
+	settextstyle(2, 0, 7);
+	outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
+	outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
+
+	line(150, 0, 150, 150);
+	line(0, 120, 150, 120);
+	line(0, 150, 150, 150);
+
+	line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
+	line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
+	line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
+
+	robot(1);
+	player(0);
+
+	settextstyle(2, 0, 8);
+	line(50, 240, 100, 240);
+	outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
+	outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
+
+	settextstyle(2, 0, 7);
+	outtextxy(175, 25, "Your Move");
+	outtextxy(175, vinf.bottom - 25 - 11 - textheight("C"), "CPU's Move");
+
+	putimage(400, 50, rock, 0);
+	putimage(400, 175, paper, 0);
+	putimage(400, 300, scissors, 0);
+
+	if (pMove == 1) putimage(175, 50, rock, 0);
+	else if (pMove == 2) putimage(175, 50, paper, 0);
+	else if (pMove == 3) putimage(175, 50, scissors, 0);
+
+	if (choice == 1) {
+		pointer(350, 100, 12);
+		putimage(175, vinf.bottom - 150 - 11, rock, 0);
+	} else if (choice == 2) {
+		pointer(350, 225, 12);
+		putimage(175, vinf.bottom - 150 - 11, paper, 0);
+	} else if (choice == 3) {
+		pointer(350, 350, 12);
+		putimage(175, vinf.bottom - 150 - 11, scissors, 0);
+	}
+}
+
+void stateRoundResults(int result) {
+	char numBuffer[4];
 	char roundsbf[10], playerbf[13];
 	char plyscrbf[3], comscrbf[3];
 
@@ -555,322 +753,153 @@ void redrawviewport (int mode, int info) {
 
 	sprintf(plyscrbf, "%d", pScore);
 	sprintf(comscrbf, "%d", cScore);
+	
+	settextstyle(2, 0, 8);
+	getviewsettings(&vinf);
 
+	settextstyle(2, 0, 7);
+	outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
+	outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
+
+	line(150, 0, 150, 150);
+	line(0, 120, 150, 120);
+	line(0, 150, 150, 150);
+
+	line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
+	line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
+	line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
+
+	settextstyle(2, 0, 8);
+	line(50, 240, 100, 240);
+	outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
+	outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
+
+	settextstyle(2, 0, 7);
+	outtextxy(175, 25, "Your Move");
+	outtextxy(175, vinf.bottom - 25 - 11 - textheight("C"), "CPU's Move");
+
+	if (pMove == 1) putimage(175, 50, rock, 0);
+	else if (pMove == 2) putimage(175, 50, paper, 0);
+	else if (pMove == 3) putimage(175, 50, scissors, 0);
+
+	if (cMove == 1) putimage(175, vinf.bottom - 150 - 11, rock, 0);
+	else if (cMove == 2) putimage(175, vinf.bottom - 150 - 11, paper, 0);
+	else if (cMove == 3) putimage(175, vinf.bottom - 150 - 11, scissors, 0);
+
+	if (result == 1) {
+		settextstyle(2, 0, 9);
+		setcolor(YELLOW);
+		outtextxy(300 + (vinf.right - 300 - textwidth(playerbf)) / 2, (vinf.bottom - vinf.top - textheight("Y")) / 2, playerbf);
+		settextstyle(0, 0, 0);
+		setcolor(WHITE);
+		outtextxy(300 + (vinf.right - 300 - textwidth("Wins")) / 2, 25 + (vinf.bottom - vinf.top - textheight("Y")) / 2, "Wins");
+		robot(2);
+		player(3);
+	} else if (result == 2) { //
+		settextstyle(2, 0, 9);
+		setcolor(RED);
+		outtextxy(300 + (vinf.right - 300 - textwidth("Computer")) / 2, (vinf.bottom - vinf.top - textheight("Y")) / 2, "Computer");
+		settextstyle(0, 0, 0);
+		setcolor(WHITE);
+		outtextxy(300 + (vinf.right - 300 - textwidth("Wins")) / 2, 25 + (vinf.bottom - vinf.top - textheight("Y")) / 2, "Wins");
+		robot(3);
+		player(1);
+	} else if (result == 3) { // Draw
+		settextstyle(2, 0, 9);
+		setcolor(GREEN);
+		outtextxy(300 + (vinf.right - 300 - textwidth("Draw")) / 2, (vinf.bottom - vinf.top - textheight("Y")) / 2, "DRAW");
+		settextstyle(0, 0, 0);
+		setcolor(WHITE);
+		outtextxy(300 + (vinf.right - 300 - textwidth("It\'s a")) / 2, -25 + (vinf.bottom - vinf.top - textheight("Y")) / 2, "It\'s a");
+		robot(0);
+		player(2);
+	}
+}
+
+void stateGameResults(int info) {
+	char numBuffer[4];
+	char roundsbf[10], playerbf[13];
+	char plyscrbf[3], comscrbf[3];
+
+
+	sprintf(numBuffer,"%d", rounds);
+	sprintf(roundsbf, "Round %d", currentRound);
+	sprintf(playerbf, "%s", playerName);
+
+	sprintf(plyscrbf, "%d", pScore);
+	sprintf(comscrbf, "%d", cScore);
+
+	settextstyle(2, 0, 8);
+	getviewsettings(&vinf);
+
+	settextstyle(2, 0, 7);
+	outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
+	outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
+
+	line(150, 0, 150, 150);
+	line(0, 120, 150, 120);
+	line(0, 150, 150, 150);
+
+	line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
+	line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
+	line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
+
+	if (result == 1) {
+		setcolor(GREEN);
+		centertext(190, "You WIN!");
+		player(3);
+		robot(2);
+	} else if (result == 3) {
+		setcolor(YELLOW);
+		centertext(190, "It's a TIE!");
+		player(2);
+		robot(0);
+	} else if (result == 2) {
+		setcolor(RED);
+		centertext(190, "You LOSE!");
+		player(1);
+		robot(3);
+	}
+
+	delay(1200);
+	setcolor(WHITE);
+	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, -(30 + textwidth(playerbf)), playerbf);
+	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, 30 + textwidth("Player"), "Computer");
+
+	outtextxy(textcenter(-(30 + textwidth(playerbf)), playerbf) + (textwidth(playerbf) - textwidth(plyscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, plyscrbf);
+	outtextxy(textcenter(30 + textwidth("Player"), "Computer") + (textwidth("Computer") - textwidth(comscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, comscrbf);
+	delay(1200);
+	settextstyle(0, 0, 0);
+	centertext(100 + (vinf.bottom - vinf.top - textheight("W")) / 2, "Press any key to continue...");
+}
+
+// Function responsible for redrawing non-static game states (eg. menus)
+// The argument info allows us to pass some information to the redrawer,
+// which allows us to change some elements of the game.
+void redrawviewport (int mode, int info) {
 	switch (mode) {
 		case 1: // Main Menu
-			outtextxy(230, 50, "Play");
-			outtextxy(230, 80, "How to Play");
-			outtextxy(230, 110, "Quit");
-
-			// Handle pointer redraws
-			pointer(210, 63 + (30 * info), 8);
-			break;
+			stateMainMenu(info);
 		case 2: // Exit confirmation
-			centertext(5, "Do you want to quit the game?");
-			centertext(105, -30, "Yes");
-			centertext(105, +30, "No");
+			stateExitConfirm();
 			break;
 		case 3: // Game options
-			settextstyle(7, 0, 1);
-			centertext(15, "Game Setup");
-
-			if (info == 1) setcolor(YELLOW);
-			settextstyle(1, 0, 1);
-			centertext(45, "Player Name");
-			if (info == 1) setcolor(WHITE);
-
-			settextstyle(2, 0, 8);
-			centertext(65, playerName);
-
-			if (info == 2) setcolor(YELLOW);
-			settextstyle(1, 0, 1);
-			centertext(90, "Number of Games");
-			if (info == 2) setcolor(WHITE);
-
-			settextstyle(2, 0, 8);
-			centertext(110, numBuffer);
-
-			if (rounds >= 10) pointer(textcenter(0, numBuffer) - 5, (textheight(numBuffer) / 2) + 110, -3);
-			else if (rounds <= 1) pointer(textcenter(0, numBuffer) + textwidth(numBuffer) + 2, (textheight(numBuffer) / 2) + 110, 3);
-			else {
-				pointer(textcenter(0, numBuffer) - 5, (textheight(numBuffer) / 2) + 110, -3);
-				pointer(textcenter(0, numBuffer) + textwidth(numBuffer) + 2, (textheight(numBuffer) / 2) + 110, 3);
-			}
-
-			settextstyle(2, 0, 8);
-			if (info == 3) setcolor(YELLOW);
-			centertext(140, "Start Game");
-			if (info == 3) setcolor(WHITE);
+			stateGameSetup(info);
 			break;
 		case 4:  // Game proper: round setup
-			settextstyle(2, 0, 8);
-			getviewsettings(&vinf);
-
-			// Character Portrait Boxes
-			line(150, 0, 150, 150);
-			line(0, 120, 150, 120);
-			line(0, 150, 150, 150);
-
-			line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
-			line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
-			line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
-
-			robot(0);
-			player(0);
-
-			// Nameplates
-			settextstyle(2, 0, 7);
-			outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
-			outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
-
-			// Scoreboard
-			settextstyle(2, 0, 8);
-			line(50, 240, 100, 240);
-			outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
-			outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
-
-			// Round header
-			delay(1250);
-			centertext((vinf.bottom - vinf.top - textheight("W")) / 2, roundsbf);
-			delay(1250);
-			settextstyle(0, 0, 0);
-			centertext((vinf.bottom - vinf.top - textheight("W")) / 2 + 20, "Press any key...");
-			settextstyle(2, 0, 8);
-			getch();
-			clearviewport();
-
-			// Rewrites screen again for next part of animation
-			// Nameplates
-			settextstyle(2, 0, 7);
-			outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
-			outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
-
-			// Scoreboard
-			settextstyle(2, 0, 8);
-			line(50, 240, 100, 240);
-			outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
-			outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
-
-			// Character Portrait Boxes
-			line(150, 0, 150, 150);
-			line(0, 120, 150, 120);
-			line(0, 150, 150, 150);
-
-			line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
-			line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
-			line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
-
-			robot(0);
-			player(0);
-
-			// Choices display animation
-			putimage(400, 50, rock, 0);
-
-			delay(750);
-			putimage(400, 175, paper, 0);
-
-			delay(750);
-			putimage(400, 300, scissors, 0);
-
-			delay(750);
-			pointer(350, 100, 12);
+			stateRoundInfo();
 			break;
 		case 5: // Game proper: player update
-			settextstyle(2, 0, 8);
-			getviewsettings(&vinf);
-
-			settextstyle(2, 0, 7);
-			outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
-			outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
-
-			line(150, 0, 150, 150);
-			line(0, 120, 150, 120);
-			line(0, 150, 150, 150);
-
-			line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
-			line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
-			line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
-
-			robot(0);
-			player(0);
-
-			settextstyle(2, 0, 8);
-			line(50, 240, 100, 240);
-			outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
-			outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
-
-			settextstyle(2, 0, 7);
-			outtextxy(175, 25, "Your Move");
-			outtextxy(175, vinf.bottom - 25 - 11 - textheight("C"), "CPU  Move");
-
-
-			putimage(400, 50, rock, 0);
-			putimage(400, 175, paper, 0);
-			putimage(400, 300, scissors, 0);
-
-			if (info == 1) {
-				pointer(350, 100, 12);
-				putimage(175, 50, rock, 0);
-			} else if (info == 2) {
-				pointer(350, 225, 12);
-				putimage(175, 50, paper, 0);
-			} else if (info == 3) {
-				pointer(350, 350, 12);
-				putimage(175, 50, scissors, 0);
-			}
+			statePlayerChoice(info);
 			break;
 		case 6: // Game proper: comp choice
-			settextstyle(2, 0, 8);
-			getviewsettings(&vinf);
-
-			settextstyle(2, 0, 7);
-			outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
-			outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
-
-			line(150, 0, 150, 150);
-			line(0, 120, 150, 120);
-			line(0, 150, 150, 150);
-
-			line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
-			line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
-			line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
-
-			robot(1);
-			player(0);
-
-			settextstyle(2, 0, 8);
-			line(50, 240, 100, 240);
-			outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
-			outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
-
-			settextstyle(2, 0, 7);
-			outtextxy(175, 25, "Your Move");
-			outtextxy(175, vinf.bottom - 25 - 11 - textheight("C"), "CPU's Move");
-
-			putimage(400, 50, rock, 0);
-			putimage(400, 175, paper, 0);
-			putimage(400, 300, scissors, 0);
-
-			if (pMove == 1) putimage(175, 50, rock, 0);
-			else if (pMove == 2) putimage(175, 50, paper, 0);
-			else if (pMove == 3) putimage(175, 50, scissors, 0);
-
-			if (info == 1) {
-				pointer(350, 100, 12);
-				putimage(175, vinf.bottom - 150 - 11, rock, 0);
-			} else if (info == 2) {
-				pointer(350, 225, 12);
-				putimage(175, vinf.bottom - 150 - 11, paper, 0);
-			} else if (info == 3) {
-				pointer(350, 350, 12);
-				putimage(175, vinf.bottom - 150 - 11, scissors, 0);
-			}
+			stateComputerChoice(info);
 			break;
 		case 7: // game proper: round results screen
-			settextstyle(2, 0, 8);
-			getviewsettings(&vinf);
-
-			settextstyle(2, 0, 7);
-			outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
-			outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
-
-			line(150, 0, 150, 150);
-			line(0, 120, 150, 120);
-			line(0, 150, 150, 150);
-
-			line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
-			line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
-			line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
-
-			settextstyle(2, 0, 8);
-			line(50, 240, 100, 240);
-			outtextxy((150 - textwidth(plyscrbf)) / 2, 235 - textheight("H"), plyscrbf);
-			outtextxy((150 - textwidth(comscrbf)) / 2, 240, comscrbf);
-
-			settextstyle(2, 0, 7);
-			outtextxy(175, 25, "Your Move");
-			outtextxy(175, vinf.bottom - 25 - 11 - textheight("C"), "CPU's Move");
-
-			if (pMove == 1) putimage(175, 50, rock, 0);
-			else if (pMove == 2) putimage(175, 50, paper, 0);
-			else if (pMove == 3) putimage(175, 50, scissors, 0);
-
-			if (cMove == 1) putimage(175, vinf.bottom - 150 - 11, rock, 0);
-			else if (cMove == 2) putimage(175, vinf.bottom - 150 - 11, paper, 0);
-			else if (cMove == 3) putimage(175, vinf.bottom - 150 - 11, scissors, 0);
-
-			if (info == 1) {
-				settextstyle(2, 0, 9);
-				setcolor(YELLOW);
-				outtextxy(300 + (vinf.right - 300 - textwidth(playerbf)) / 2, (vinf.bottom - vinf.top - textheight("Y")) / 2, playerbf);
-				settextstyle(0, 0, 0);
-				setcolor(WHITE);
-				outtextxy(300 + (vinf.right - 300 - textwidth("Wins")) / 2, 25 + (vinf.bottom - vinf.top - textheight("Y")) / 2, "Wins");
-				robot(2);
-				player(3);
-			} else if (info == 2) { //
-				settextstyle(2, 0, 9);
-				setcolor(RED);
-				outtextxy(300 + (vinf.right - 300 - textwidth("Computer")) / 2, (vinf.bottom - vinf.top - textheight("Y")) / 2, "Computer");
-				settextstyle(0, 0, 0);
-				setcolor(WHITE);
-				outtextxy(300 + (vinf.right - 300 - textwidth("Wins")) / 2, 25 + (vinf.bottom - vinf.top - textheight("Y")) / 2, "Wins");
-				robot(3);
-				player(1);
-			} else if (info == 3) { // Draw
-				settextstyle(2, 0, 9);
-				setcolor(GREEN);
-				outtextxy(300 + (vinf.right - 300 - textwidth("Draw")) / 2, (vinf.bottom - vinf.top - textheight("Y")) / 2, "DRAW");
-				settextstyle(0, 0, 0);
-				setcolor(WHITE);
-				outtextxy(300 + (vinf.right - 300 - textwidth("It\'s a")) / 2, -25 + (vinf.bottom - vinf.top - textheight("Y")) / 2, "It\'s a");
-				robot(0);
-				player(2);
-			}
+			stateRoundResults(info);
 			break;
 		case 8: // Game proper: results screen
-			settextstyle(2, 0, 8);
-			getviewsettings(&vinf);
-
-			settextstyle(2, 0, 7);
-			outtextxy((150 - textwidth(playerbf)) / 2, 120 + (30 - textheight("H")) / 2, playerbf);
-			outtextxy((150 - textwidth("Computer")) / 2, (vinf.bottom - 150 - 11) + (30 - textheight("H")) / 2, "Computer");
-
-			line(150, 0, 150, 150);
-			line(0, 120, 150, 120);
-			line(0, 150, 150, 150);
-
-			line(0, vinf.bottom - 150 - 11, 150, vinf.bottom - 150 - 11);
-			line(0, vinf.bottom - 120 - 11, 150, vinf.bottom - 120 - 11);
-			line(150, vinf.bottom - 150 - 11, 150, vinf.bottom - 11);
-
-			if (info == 1) {
-				setcolor(GREEN);
-				centertext(190, "You WIN!");
-				player(3);
-				robot(2);
-			} else if (info == 3) {
-				setcolor(YELLOW);
-				centertext(190, "It's a TIE!");
-				player(2);
-				robot(0);
-			} else if (info == 2) {
-				setcolor(RED);
-				centertext(190, "You LOSE!");
-				player(1);
-				robot(3);
-			}
-
-			delay(1200);
-			setcolor(WHITE);
-			centertext((vinf.bottom - vinf.top - textheight("W")) / 2, -(30 + textwidth(playerbf)), playerbf);
-			centertext((vinf.bottom - vinf.top - textheight("W")) / 2, 30 + textwidth("Player"), "Computer");
-
-			outtextxy(textcenter(-(30 + textwidth(playerbf)), playerbf) + (textwidth(playerbf) - textwidth(plyscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, plyscrbf);
-			outtextxy(textcenter(30 + textwidth("Player"), "Computer") + (textwidth("Computer") - textwidth(comscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, comscrbf);
-			delay(1200);
-			settextstyle(0, 0, 0);
-			centertext(100 + (vinf.bottom - vinf.top - textheight("W")) / 2, "Press any key to continue...");
+			stateGameReults(info);
 			break;
 		default:
 			return;
@@ -878,7 +907,7 @@ void redrawviewport (int mode, int info) {
 }
 
 
-		     /* Screens */
+/* Screen Operation */
 void loading (int min) {
 	int i;
 
@@ -909,10 +938,7 @@ void loading (int min) {
 
 void title() {
 	int centerx, centery;
-
-
 	resetviewport(0);
-	border();
 
 	// Title
 	setviewport(30, 30, getmaxx() - 30, getmaxy() - 30, 0);
@@ -1111,7 +1137,7 @@ int playerselect () {
 		keypress = getch();
 
 		// Executes commands based on keypresses
-		if (keypress == 0) {
+		if (keypress == 0) { //Ignores special keypresses except downward key press
 		  int altkey = getch();
 		  switch (altkey) {
 			case 80:
@@ -1122,13 +1148,15 @@ int playerselect () {
 		else if (keypress == 8) { // Processes backspace
 			if (index > 0) {  // Checks if current index is not below 0
 				index--;  // Shifts index
-				playerName[index] = '\0'; // Replaces current index with a null character (to simulate key deletion)
+				playerName[index] = '_'; 
+				playerName[index++] = '\0'; // Replaces current index with a null character (to simulate key deletion)
 			}
 		} else { // Facilitates any other key presses
-			if (index <= 12){ // Checks if current index is greater than 12 (max name limit)
+			if (index < 12){ // Checks if current index is greater than 12 (max name limit)
 				playerName[index] = char(keypress);
 				index++;
-				playerName[index] = '\0';
+				playerName[index] = '_'; 
+				playerName[index++] = '\0'; 
 			}
 		}
 
@@ -1230,10 +1258,8 @@ int computerChoice () {
 		int duration = (25 + (975 / (1 + exp(-(i - 40))))); // Logistic function for determining duration of each roulette move
 
 		// Simulate next roulette move
-		do {
-			prevMove = move;
-			move = 1 + rand() % 3;
-		} while (prevMove == move); // Prevents the randomizer to
+		prevMove = move;
+		move = 1 + (prevMove % 3);
 
 		// Draw/update screen
 		clearviewport();
@@ -1286,8 +1312,7 @@ void gameProper () {
 	enum Message msg;
 
 	resetviewport(1);
-	cleardevice();
-	border();
+	clearviewport();
 
 	setviewport(11, 11, getmaxx() - 11, getmaxy() - 11, 0);
 	getviewsettings(&vinf);
