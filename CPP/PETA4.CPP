@@ -72,8 +72,10 @@ Message awaitKey () {
 	};
 }
 
-int checkMem () {
-	return coreleft();
+void freeAssets () {
+	free(rock);
+	free(paper);
+	free(scissors);
 }
 
 /* Graphics Initialization */
@@ -380,7 +382,24 @@ int initAssets() {
 	scissors = malloc(spritesize);
 
 	// Executes if memory allocation fails (null value)
-	if (rock == NULL || paper == NULL || scissors == NULL) {
+	if (rock == NULL) {
+		freeAssets();
+		endGraphics();
+		cout << "Memory allocation failed!" << endl;
+		getch();
+		return -1;
+	}
+
+	if (paper == NULL) {
+		freeAssets();
+		endGraphics();
+		cout << "Memory allocation failed!" << endl;
+		getch();
+		return -1;
+	}
+
+	if (scissors == NULL) {
+		freeAssets();
 		endGraphics();
 		cout << "Memory allocation failed!" << endl;
 		getch();
@@ -526,7 +545,7 @@ int initAssets() {
 // which allows us to change some elements of the game.
 void redrawviewport (int mode, int info) {
 
-	char numBuffer[3];
+	char numBuffer[4];
 	char roundsbf[10], playerbf[13];
 	char plyscrbf[3], comscrbf[3];
 
@@ -1106,7 +1125,7 @@ int playerselect () {
 				playerName[index] = '\0'; // Replaces current index with a null character (to simulate key deletion)
 			}
 		} else { // Facilitates any other key presses
-			if (index <= 12){ // Checks if current index is greater than 12 (max name limit)
+			if (index < 12){ // Checks if current index is greater than 12 (max name limit)
 				playerName[index] = char(keypress);
 				index++;
 				playerName[index] = '\0';
@@ -1162,7 +1181,7 @@ int gameSetup () {
 			}
 		} while (latch);
 
-		if (msg == BACK || msg == MOVECURYP) goto roundchoices;
+		if (msg == BACK || msg == MOVECURYN) goto roundchoices;
 
 	} while (1);
 }
@@ -1246,8 +1265,6 @@ void scoreUpdater (int mode) {
 			break;
 		case 3: // Draw
 			redrawviewport(7, 3);
-			cScore++;
-			pScore++;;
 			delay(1500);
 			clearviewport();
 			redrawviewport(7, 3);
@@ -1259,6 +1276,8 @@ void scoreUpdater (int mode) {
 
 void gameProper () {
 
+	int isDraw;
+
 	pMove = 1, pScore = 0;
 	cMove = 1, cScore = 0;
 
@@ -1267,8 +1286,7 @@ void gameProper () {
 	enum Message msg;
 
 	resetviewport(1);
-	cleardevice();
-	border();
+	clearviewport();
 
 	setviewport(11, 11, getmaxx() - 11, getmaxy() - 11, 0);
 	getviewsettings(&vinf);
@@ -1276,6 +1294,7 @@ void gameProper () {
 	loading(15);
 
 	do {
+		isDraw = 0;
 		clearviewport();
 		redrawviewport(4, 0);
 		pMove = playerChoice();
@@ -1289,8 +1308,9 @@ void gameProper () {
 		switch (pMove) {
 			case 1:
 				switch (cMove) {
-					case 1:
+					case 1: //
 						scoreUpdater(3);
+						isDraw = 1;
 						break;
 					case 2:
 						scoreUpdater(2);
@@ -1307,6 +1327,7 @@ void gameProper () {
 						break;
 					case 2:
 						scoreUpdater(3);
+						isDraw = 1;
 						break;
 					case 3:
 						scoreUpdater(2);
@@ -1323,13 +1344,14 @@ void gameProper () {
 						break;
 					case 3:
 						scoreUpdater(3);
+						isDraw = 1;
 						break;
 				}
 				break;
 		}
 
 		getch();
-		currentRound++;
+		if (!isDraw) currentRound++;
 	} while (currentRound <= rounds);
 
 	clearviewport();
@@ -1341,15 +1363,6 @@ void gameProper () {
 	resetviewport(0);
 
 }
-
-void freeAssets () {
-	free(rock);
-	free(paper);
-	free(scissors);
-}
-
-
-
 
 /* Control */
 int main () {

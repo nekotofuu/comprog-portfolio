@@ -13,7 +13,7 @@
 int rounds = 1, currentRound = 1;
 int pMove = 0, cMove = 0;
 int pScore = 0, cScore = 0;
-char playerName[12] = "Player";
+char playerName[15] = "Player";
 
 void *rock, *paper, *scissors;
 
@@ -72,8 +72,10 @@ Message awaitKey () {
 	};
 }
 
-int checkMem () {
-	return coreleft();
+void freeAssets () {
+	free(rock);
+	free(paper);
+	free(scissors);
 }
 
 /* Graphics Initialization */
@@ -380,7 +382,24 @@ int initAssets() {
 	scissors = malloc(spritesize);
 
 	// Executes if memory allocation fails (null value)
-	if (rock == NULL || paper == NULL || scissors == NULL) {
+	if (rock == NULL) {
+		freeAssets();
+		endGraphics();
+		cout << "Memory allocation failed!" << endl;
+		getch();
+		return -1;
+	}
+
+	if (paper == NULL) {
+		freeAssets();
+		endGraphics();
+		cout << "Memory allocation failed!" << endl;
+		getch();
+		return -1;
+	}
+
+	if (scissors == NULL) {
+		freeAssets();
 		endGraphics();
 		cout << "Memory allocation failed!" << endl;
 		getch();
@@ -1064,6 +1083,11 @@ int numGames (Message msg) {
 				case MOVECURXP:
 					rounds++;
 					break;
+				case MOVECURYN:   // Same as BACK
+					clearviewport();
+					return -1;
+				case MOVECURYP:
+					return 0;
 			}
 
 			// Ensures rounds stay bounded between 1-10 rounds
@@ -1087,7 +1111,13 @@ int playerselect () {
 		keypress = getch();
 
 		// Executes commands based on keypresses
-		if (keypress == 27) break; // Exits when Esc is detected
+		if (keypress == 0) {
+		  int altkey = getch();
+		  switch (altkey) {
+			case 80:
+			       return 0;
+		  }
+		} else if (keypress == 27) break; // Exits when Esc is detected
 		else if ((keypress == 13) || (keypress == 32)) return 0; // Proceeds to next screen upon Space/Enter
 		else if (keypress == 8) { // Processes backspace
 			if (index > 0) {  // Checks if current index is not below 0
@@ -1112,11 +1142,12 @@ int gameSetup () {
 	enum Message msg;
 	getviewsettings(&vinf);
 
-	int cmd;
+	int cmd = 0;
 
 	do {
 		pselect:
 		;
+		cmd = 0;
 		cmd = playerselect();
 		if (cmd == -1) {
 			clearviewport();
@@ -1125,11 +1156,13 @@ int gameSetup () {
 
 		roundchoices:
 		;
+		cmd = 0;
 		cmd = numGames(msg);
 		if (cmd == -1) goto pselect;
 
 
 		// Start game confirmation
+		int latch = 1;
 		do {
 			clearviewport();
 			redrawviewport(3, 3);
@@ -1139,10 +1172,16 @@ int gameSetup () {
 			switch (msg) {
 				case SELECT:
 					return 0;
+				case BACK:
+					latch = 0;
+					break;
+				case MOVECURYN:
+					latch = 0;
+					break;
 			}
-		} while (msg != BACK);
+		} while (latch);
 
-		if (msg == BACK) goto roundchoices;
+		if (msg == BACK || msg == MOVECURYN) goto roundchoices;
 
 	} while (1);
 }
@@ -1226,8 +1265,6 @@ void scoreUpdater (int mode) {
 			break;
 		case 3: // Draw
 			redrawviewport(7, 3);
-			cScore++;
-			pScore++;;
 			delay(1500);
 			clearviewport();
 			redrawviewport(7, 3);
@@ -1238,6 +1275,8 @@ void scoreUpdater (int mode) {
 }
 
 void gameProper () {
+
+	int isDraw;
 
 	pMove = 1, pScore = 0;
 	cMove = 1, cScore = 0;
@@ -1256,6 +1295,7 @@ void gameProper () {
 	loading(15);
 
 	do {
+		isDraw = 0;
 		clearviewport();
 		redrawviewport(4, 0);
 		pMove = playerChoice();
@@ -1269,8 +1309,9 @@ void gameProper () {
 		switch (pMove) {
 			case 1:
 				switch (cMove) {
-					case 1:
+					case 1: //
 						scoreUpdater(3);
+						isDraw = 1;
 						break;
 					case 2:
 						scoreUpdater(2);
@@ -1287,6 +1328,7 @@ void gameProper () {
 						break;
 					case 2:
 						scoreUpdater(3);
+						isDraw = 1;
 						break;
 					case 3:
 						scoreUpdater(2);
@@ -1303,13 +1345,14 @@ void gameProper () {
 						break;
 					case 3:
 						scoreUpdater(3);
+						isDraw = 1;
 						break;
 				}
 				break;
 		}
 
 		getch();
-		currentRound++;
+		if (!isDraw) currentRound++;
 	} while (currentRound <= rounds);
 
 	clearviewport();
@@ -1321,15 +1364,6 @@ void gameProper () {
 	resetviewport(0);
 
 }
-
-void freeAssets () {
-	free(rock);
-	free(paper);
-	free(scissors);
-}
-
-
-
 
 /* Control */
 int main () {
