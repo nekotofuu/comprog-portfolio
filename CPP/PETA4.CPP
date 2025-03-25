@@ -77,6 +77,12 @@ void freeAssets () {
 	free(scissors);
 }
 
+void flushInput() {
+	while (kbhit()) {
+	       getch();
+	}
+}
+
 /* Graphics Initialization */
 struct gconfig {
 	int gd;
@@ -583,6 +589,7 @@ void stateRoundSetup() {
 	delay(1250);
 	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, roundsbf);
 	delay(1250);
+	flushInput();;
 	settextstyle(0, 0, 0);
 	centertext((vinf.bottom - vinf.top - textheight("W")) / 2 + 20, "Press any key...");
 	settextstyle(2, 0, 8);
@@ -617,12 +624,15 @@ void stateRoundSetup() {
 	putimage(400, 50, rock, 0);
 
 	delay(750);
+	flushInput();
 	putimage(400, 175, paper, 0);
 
 	delay(750);
+	flushInput();
 	putimage(400, 300, scissors, 0);
 
 	delay(750);
+	flushInput();
 	pointer(350, 100, 12);
 }
 
@@ -862,6 +872,7 @@ void stateGameResults(int result) {
 	}
 
 	delay(1200);
+	flushInput();
 	setcolor(WHITE);
 	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, -(30 + textwidth(playerbf)), playerbf);
 	centertext((vinf.bottom - vinf.top - textheight("W")) / 2, 30 + textwidth(playerbf), "Computer");
@@ -870,6 +881,7 @@ void stateGameResults(int result) {
 	outtextxy(textcenter(-(30 + textwidth(playerbf)), playerbf) + (textwidth(playerbf) - textwidth(plyscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, plyscrbf);
 	outtextxy(textcenter(30 + textwidth(playerbf), "Computer") + (textwidth("Computer") - textwidth(comscrbf)) / 2, 5 + textheight("W") + (vinf.bottom - vinf.top - textheight("W")) / 2, comscrbf);
 	delay(1200);
+	flushInput();
 	settextstyle(0, 0, 0);
 	centertext(100 + (vinf.bottom - vinf.top - textheight("W")) / 2, "Press any key to continue...");
 }
@@ -927,6 +939,7 @@ void loading (int min) {
 		while (frame != 3) {
 			centertext((vinf.bottom - vinf.top - textheight(loading[frame])) / 2, loading[frame]); // Write frame
 			delay(125);
+			flushInput();
 			clearviewport();
 			frame++; // Shift to next frame
 		};
@@ -954,11 +967,13 @@ void title() {
 	outtextxy(45, 45, "ROCK");
 
 	delay(225);
+	flushInput();
 
 	settextstyle(10, 0, 4);
 	outtextxy(210, 95, "Paper");
 
 	delay(225);
+	flushInput();
 
 	settextstyle(5, 0, 7);
 	outtextxy(345, 135, "Scissors");
@@ -1025,6 +1040,7 @@ void help () {
 	centertext(170, "after a specified number of games wins!");
 
 	delay(125);
+	flushInput();
 
 	getch();
 	clearviewport();
@@ -1273,6 +1289,7 @@ int computerChoice () {
 		redrawviewport(6, move);
 
 		delay(duration);
+		flushInput();
 	}
 
 	clearviewport();
@@ -1286,6 +1303,7 @@ void scoreUpdater (int mode) {
 			redrawviewport(7, 1);
 			pScore++;
 			delay(1500);
+			flushInput();
 			clearviewport();
 			redrawviewport(7, 1);
 			break;
@@ -1293,12 +1311,14 @@ void scoreUpdater (int mode) {
 			redrawviewport(7, 2);
 			cScore++;
 			delay(1500);
+			flushInput();
 			clearviewport();
 			redrawviewport(7, 2);
 			break;
 		case 3: // Draw
 			redrawviewport(7, 3);
 			delay(1500);
+			flushInput();
 			clearviewport();
 			redrawviewport(7, 3);
 			break;
@@ -1333,6 +1353,7 @@ void gameProper () {
 		cMove = computerChoice();
 
 		delay(1200);
+		flushInput();
 		clearviewport();
 
 		switch (pMove) {
@@ -1411,6 +1432,7 @@ int main () {
 		return -1;
 	}
 	loading(3);
+	flushInput();;
 	delay(50);
 	border();
 
